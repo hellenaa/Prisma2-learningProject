@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgreadmin:513015@192.168.2.204:5432/api_project?schema=public"
+}
+
+model about {
+  id       String  @id @default(uuid())
+  status   String? @default("NULL::character varying")
+  text_arm String
+  text_eng String
+  text_rus String
+}
+
+model homepage_slider {
+  filepath String
+  id       String @id @default(uuid())
+  position Int?   @unique
+}
+
+model partner_slider {
+  filepath String
+  id       String  @id @default(uuid())
+  url      String? @default("NULL::character varying")
+}
